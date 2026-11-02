@@ -10,8 +10,8 @@ body {
 }
 
 :root {
-    --color-texto: #222222;
-    --color-principal: #d9381e; /* Color rojizo estilo pizzería */
+    --color-texto: #111111;
+    --color-principal: #d14830; 
     --ancho-max: 1140px;
 }
 
@@ -183,25 +183,29 @@ footer a {
     .tarjeta { width: calc(33.333% - .67rem); } 
 }
 
-/* Acordeón */
-.accordion .titulo {
-    width: 100%;
+/* Estilos para el Acordeón nativo */
+.accordion .item {
+    background: #f4f4f4;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+    border: 1px solid #ddd;
+}
+
+.accordion .item .titulo {
     padding: 1rem;
-    text-align: left;
     font-size: 1rem;
-    background: #f1f3f5;
-    border: 0;
-    border-bottom: 1px solid #ddd;
+    font-weight: bold;
     cursor: pointer;
+    outline: none;
+    background: #f4f4f4;
+    list-style: none;
 }
 
-.accordion .contenido { 
-    display: none; 
-    padding: 1rem; 
-}
-
-.accordion .item.activo .contenido { 
-    display: block; 
+.accordion .item .contenido {
+    padding: 1rem;
+    background: #fff;
+    border-top: 1px solid #ddd;
 }
 
 /* Mobile First y Media Queries */
@@ -227,4 +231,14 @@ footer a {
     .menu { display: block; }
     .hamburguesa { display: none; }
     .portada h1 { font-size: 2.6rem; }
+}
+
+/* Efecto de elevación al pasar el mouse por encima de las preguntas */
+.accordion .item {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.accordion .item:hover {
+    transform: translateY(-3px); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
