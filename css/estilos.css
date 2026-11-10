@@ -22,7 +22,7 @@ body {
     padding: 0 1rem;
 }
 
-/* Estilos del header */
+
 .header {
     display: flex;
     justify-content: space-between;
@@ -104,7 +104,7 @@ body {
     color: var(--color-principal);
 }
 
-/* Galería / Secciones visuales */
+/*galeria*/
 .galeria {
     padding: 2rem 1rem;
     text-align: center;
@@ -152,7 +152,7 @@ footer a {
 }
 
 .tarjeta {
-    width: 100%;
+    width: 100%; /* Por defecto en celulares ocupa todo el ancho */
     background: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 6px rgba(0,0,0,.1);
@@ -164,7 +164,7 @@ footer a {
 .tarjeta img {
     width: 100%;
     height: 180px;
-    object-fit: cover;
+    object-fit: cover; /* Esto evita que las fotos se deformen */
 }
 
 .tarjeta h3, .tarjeta p {
@@ -175,12 +175,13 @@ footer a {
     transform: translateY(-4px); 
 }
 
-@media (min-width: 701px) { 
-    .tarjeta { width: calc(50% - .5rem); } 
+/* Ajustes responsivos para las tarjetas */
+@media (min-width: 576px) { 
+    .tarjeta { width: calc(50% - 0.5rem); } /* 2 columnas en tablets */
 }
 
 @media (min-width: 991px) { 
-    .tarjeta { width: calc(33.333% - .67rem); } 
+    .tarjeta { width: calc(33.333% - 0.67rem); } /* 3 columnas en computadoras */
 }
 
 /* Estilos para el Acordeón nativo */
@@ -233,7 +234,7 @@ footer a {
     .portada h1 { font-size: 2.6rem; }
 }
 
-/* Efecto de elevación al pasar el mouse por encima de las preguntas */
+/* preguntas frecuentes */
 .accordion .item {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -241,4 +242,14 @@ footer a {
 .accordion .item:hover {
     transform: translateY(-3px); 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+/* Ocultar contenido del acordeón por defecto */
+.accordion .item .contenido {
+    display: none;
+}
+
+/* Mostrar contenido cuando el ítem tenga la clase activo */
+.accordion .item.activo .contenido {
+    display: block;
 }
